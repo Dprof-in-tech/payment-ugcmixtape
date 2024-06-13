@@ -61,7 +61,7 @@ const emailTemplate = (customerName, orderID, orderDate, Narrative, description,
                 text-align: justify;
             }
                 p{
-                    font-size: 12px;
+                    font-size: 20px;
                     color: #000000;
                 }
     </style>
@@ -71,7 +71,7 @@ const emailTemplate = (customerName, orderID, orderDate, Narrative, description,
         <div class="logo">
             <img src="https://cdn.prod.website-files.com/658d5a7761cdc354349ee44e/66550059aef2139425bddf77_logo-unicorn-long-p-500.png">
         </div>
-        <p>order: ${orderID}</p>
+        <p>Order: ${orderID}</p>
         <h1>Thank you, ${customerName}</h1>
         <p>Your order is on its way</p>
         <div class="details-row">
