@@ -18,7 +18,7 @@ const sendMail = async (from, to, subject, html) => {
             secure: false, // true for 465, false for other ports
             auth: {
                 user: process.env.MAIL_USERNAME,
-                pass: 'Fv#suLm1'
+                pass: 'ccwnsgIE0'
             },
             tls: {
                 // This prevents "Hostname/IP does not match certificate's altnames" error

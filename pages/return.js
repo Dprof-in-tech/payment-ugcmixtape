@@ -27,7 +27,7 @@ export default function Return() {
             const time = new Date(data.time);
             const id = d.slice(9, 18);
             const product = d.slice(0, 7);
-            const from = 'admin@isaaconyemaechi.tech';
+            const from = 'sales@isaaconyemaechi.tech';
             const to = data.customer_email;
             const subject = 'Payment Successful';
             const html = emailTemplate(data.customer_name, id, time, product, p, data.customer_email, data.price );
