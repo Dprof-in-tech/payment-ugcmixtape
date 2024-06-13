@@ -20,10 +20,10 @@ const sendMail = async (from, to, subject, html) => {
                 user: process.env.MAIL_USERNAME,
                 pass: 'Fv#suLm1'
             },
-            tls: {
-                // This prevents "Hostname/IP does not match certificate's altnames" error
-                rejectUnauthorized: false
-            }
+            // tls: {
+            //     // This prevents "Hostname/IP does not match certificate's altnames" error
+            //     rejectUnauthorized: false
+            // }
         });
 
         const mailOptions = {
