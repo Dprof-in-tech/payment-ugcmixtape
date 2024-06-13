@@ -23,6 +23,7 @@ export default function Return() {
           setCustomerEmail(data.customer_email);
 
           if (data.status === 'complete') {
+            console.log(data);
             const time = new Date(data.time);
             const id = d.slice(9, 18);
             const product = d.slice(0, 7);
@@ -73,25 +74,25 @@ export default function Return() {
     );
   }
 
-  else if (status !== 'complete'){
-    return (
-      <section id="success" style={{width: '300px'}}>
-        <Image src='/ugcmixtape.svg' alt='logo' width={300} height={50} />
-        <Image src='/failure.svg' alt='success' width={300} height={300} style={{marginTop: '3rem'}} />
-        <h1 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem'}}>Payment Failed</h1>
-        <p style={{fontSize: '1.2rem', marginTop: '0', maxWidth: '100%', textAlign: 'center'}}>
-          Ooops... there was something wrong with your payment.
-          please try again...
-        </p>
-        <a href='https://www.ugcmixtape.com/login'>
-        <button style={{padding: '1.2rem', borderRadius: '4px', color: 'white', backgroundColor: '#000000', border: 'none', fontSize: '1.2rem'}}>
-          Back to Login
-        </button>
-        </a>
-      </section>
-    );
+  // else if (status !== 'complete'){
+  //   return (
+  //     <section id="success" style={{width: '300px'}}>
+  //       <Image src='/ugcmixtape.svg' alt='logo' width={300} height={50} />
+  //       <Image src='/failure.svg' alt='success' width={300} height={300} style={{marginTop: '3rem'}} />
+  //       <h1 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem'}}>Payment Failed</h1>
+  //       <p style={{fontSize: '1.2rem', marginTop: '0', maxWidth: '100%', textAlign: 'center'}}>
+  //         Ooops... there was something wrong with your payment.
+  //         please try again...
+  //       </p>
+  //       <a href='https://www.ugcmixtape.com/login'>
+  //       <button style={{padding: '1.2rem', borderRadius: '4px', color: 'white', backgroundColor: '#000000', border: 'none', fontSize: '1.2rem'}}>
+  //         Back to Login
+  //       </button>
+  //       </a>
+  //     </section>
+  //   );
 
-  }
+  // }
 
   return null;
 }
