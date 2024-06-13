@@ -73,7 +73,7 @@ export default function Return() {
     );
   }
 
-  else{
+  else if (status !== 'complete'){
     return (
       <section id="success" style={{width: '300px'}}>
         <Image src='/ugcmixtape.svg' alt='logo' width={300} height={50} />
