@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         // Extract parameters from the request body or query string
-        const { name, email, amount, id } = req.body || req.query;
+        const { name, email, amount, id, client } = req.body || req.query;
 
         // Create a new Checkout Session with dynamic line items
         const session = await stripe.checkout.sessions.create({
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
             },
           ],
           mode: 'payment',
-          return_url: `${req.headers.origin}/return?session_id={CHECKOUT_SESSION_ID}&p=${name}&d=${id}`,
+          return_url: `${req.headers.origin}/return?session_id={CHECKOUT_SESSION_ID}&p=${name}&d=${id}&cn=${client}`,
           automatic_tax: { enabled: true }
         });
 

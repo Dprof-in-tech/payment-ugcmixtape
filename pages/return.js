@@ -12,6 +12,7 @@ export default function Return() {
     const { session_id } = router.query;
     const {p} = router.query;
     const {d} = router.query;
+    const {cn} = router.query;
 
     if (session_id) {
       fetch(`/api/checkout_sessions?session_id=${session_id}`, {
@@ -25,12 +26,13 @@ export default function Return() {
           if (data.status === 'complete') {
             console.log(data);
             const time = new Date(data.time);
-            const id = d.slice(9, 18);
-            const product = d.slice(0, 7);
+            const id = d.slice(23, 28);
+            const product = d.slice(0, 21);
             const from = 'sales@isaaconyemaechi.tech';
             const to = data.customer_email;
             const subject = 'Payment Successful';
-            const html = emailTemplate(data.customer_name, id, time, product, p, data.customer_email, data.price );
+            const client = cn;
+            const html = emailTemplate(client, id, time, product, p, data.customer_email, data.price );
 
             fetch('/api/sendEmail', {
               method: 'POST',

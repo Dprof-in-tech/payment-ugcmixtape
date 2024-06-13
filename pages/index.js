@@ -12,6 +12,7 @@ export default function App() {
     const name = urlParams.get('n') || '';
     const email = urlParams.get('e') || '';
     const id = urlParams.get('i') || '';
+    const client = urlParams.get('cn') || '';
     const amount = parseFloat(urlParams.get('p')) || 0; // Default to 0 if not provided
 
     try {
@@ -20,7 +21,7 @@ export default function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, amount, id }),
+        body: JSON.stringify({ name, email, amount, id, client }),
       });
 
       if (!response.ok) {
