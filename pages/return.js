@@ -28,7 +28,7 @@ export default function Return() {
             const time = new Date(data.time);
             const id = d.slice(23, 28);
             const product = d.slice(0, 21);
-            const from = 'sales@isaaconyemaechi.tech';
+            const from = 'payments@ugcmixtape.com';
             const to = data.customer_email;
             const subject = 'Payment Successful';
             const client = cn;
