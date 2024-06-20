@@ -87,7 +87,7 @@ const styles = {
     textAlign: 'center',
     marginBottom: '10px',
     marginTop: '6rem',
-    marginLeft: '40%'
+    marginLeft: '32%'
   },
   orderId: {
     display: 'flex',
