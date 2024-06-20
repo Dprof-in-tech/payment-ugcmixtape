@@ -86,9 +86,8 @@ const styles = {
   logo: {
     textAlign: 'center',
     marginBottom: '10px',
-    position: 'relative',
     marginTop: '6rem',
-    left: '25%'
+    marginLeft: '25%'
   },
   orderId: {
     display: 'flex',
