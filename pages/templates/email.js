@@ -137,6 +137,7 @@ const styles = {
     fontWeight: 'bold',
     color: '#333',
     fontSize: '16px',
+    marginLeft: '2rem',
   },
 };
 
