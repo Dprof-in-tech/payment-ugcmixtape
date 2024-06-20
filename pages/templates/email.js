@@ -126,7 +126,7 @@ const styles = {
   orderDetailLabel: {
     fontSize: '14px',
     color: '#333',
-    width: '200px'
+    width: '8rem'
   },
   orderDetailValue: {
     textAlign: 'left',
