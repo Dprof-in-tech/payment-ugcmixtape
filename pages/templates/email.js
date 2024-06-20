@@ -93,10 +93,14 @@ const styles = {
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
+    border: '1px solid black',
+    width: '100px'
   },
   orderID: {
     fontSize: '14px',
     color: '#666',
+    border: '1px solid black',
+    width: '200px'
   },
   heading: {
     textAlign: 'center',
