@@ -67,7 +67,7 @@ export default function Return() {
   if (status === 'complete') {
     return (
       <section id="success" style={styles.container}>
-          <Image src='/ugcmixtape.svg' alt='logo' width={300} height={150} style={{marginTop: '3rem'}} />
+          <Image src='/ugcmixtape.svg' alt='logo' width={200} height={100} style={{marginTop: '0rem'}} />
           <Image src='/success.svg' alt='success' width={300} height={300} style={{marginTop: '1rem'}} />
       <h1 style={styles.heading}>Payment Successful</h1>
       <p style={styles.paragraph}>
@@ -115,7 +115,7 @@ const styles = {
     minWidth: '320px',
     maxWidth: '475px',
     height: '60vh',
-    margin: '4rem auto',
+    margin: '6rem auto',
     padding: '0',
     boxSizing: 'border-box',
     textAlign: 'center',
