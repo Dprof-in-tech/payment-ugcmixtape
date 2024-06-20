@@ -32,12 +32,12 @@ const EmailTemplate = ({
             alt="logo"
             width="200"
             height="120"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'contain' }}
           />
         </Section>
         <Section style={styles.orderInfo}>
-          <Text>ORDER</Text>
-          <Text>{orderID}</Text>
+          <Text style={styles.orderLabel}>ORDER</Text>
+          <Text style={styles.orderID}>{orderID}</Text>
         </Section>
         <Text style={styles.heading}>Thank you, {customerName}</Text>
         <Text style={styles.subHeading}>Your order is on its way</Text>
@@ -54,8 +54,8 @@ const EmailTemplate = ({
 
 const OrderDetail = ({ label, value, isAmount = false }) => (
   <Row style={styles.orderDetails}>
-    <Column><Text>{label}</Text></Column>
-    <Column><Text style={isAmount ? styles.amount : styles.orderDetailValue}>{value}</Text></Column>
+    <Column style={styles.orderDetailColumn}><Text style={styles.orderDetailLabel}>{label}</Text></Column>
+    <Column style={styles.orderDetailColumn}><Text style={isAmount ? styles.amount : styles.orderDetailValue}>{value}</Text></Column>
   </Row>
 );
 
@@ -65,17 +65,17 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#f4f4f4',
+    padding: '20px',
   },
   container: {
     fontFamily: 'Arial, sans-serif',
-    width: '65%',
-    margin: 'auto',
-    padding: '0px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '100%',
+    maxWidth: '600px',
+    backgroundColor: '#ffffff',
+    padding: '20px',
     borderRadius: '8px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
   },
   logo: {
     textAlign: 'center',
@@ -83,41 +83,59 @@ const styles = {
   },
   orderInfo: {
     display: 'flex',
-    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
+    borderBottom: '1px solid #e0e0e0',
+    paddingBottom: '10px',
     marginBottom: '20px',
-    padding: '20px',
+  },
+  orderLabel: {
+    fontWeight: 'bold',
+    color: '#333',
+    fontSize: '14px',
+  },
+  orderID: {
+    fontSize: '14px',
+    color: '#666',
   },
   heading: {
     textAlign: 'center',
     color: '#333',
     marginBottom: '5px',
-    fontWeight: '550',
+    fontWeight: 'bold',
+    fontSize: '18px',
   },
   subHeading: {
-    lineHeight: '1.6',
-    marginTop: '-2px',
     textAlign: 'center',
+    color: '#666',
+    marginBottom: '20px',
+    fontSize: '14px',
   },
   orderDetails: {
     display: 'flex',
-    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
-    marginBottom: '2px',
-    padding: '0px',
+    borderBottom: '1px solid #e0e0e0',
+    padding: '10px 0',
+  },
+  orderDetailColumn: {
+    flex: 1,
+  },
+  orderDetailLabel: {
+    fontSize: '14px',
+    color: '#333',
   },
   orderDetailValue: {
     textAlign: 'right',
-    fontWeight: '900',
+    fontWeight: 'bold',
+    color: '#333',
+    fontSize: '14px',
   },
   amount: {
     textAlign: 'right',
-    fontWeight: '900',
-    fontSize: '25px',
+    fontWeight: 'bold',
+    color: '#333',
+    fontSize: '16px',
   },
 };
 
