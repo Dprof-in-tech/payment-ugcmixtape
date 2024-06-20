@@ -130,6 +130,7 @@ const styles = {
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
+    marginLeft: '5rem',
   },
   amount: {
     textAlign: 'right',

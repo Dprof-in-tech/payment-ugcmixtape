@@ -22,7 +22,7 @@ export default function Return() {
           setCustomerEmail(data.customer_email);
 
           if (data.status === 'complete') {
-            const time = new Date(data.time);
+            const time = new Date();
             const id = d.slice(23, 28);
             const product = d.slice(0, 21);
             const from = 'payments@ugcmixtape.com';
