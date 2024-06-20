@@ -79,7 +79,7 @@ const styles = {
   },
   logo: {
     textAlign: 'center',
-    marginBottom: '20px',
+    margin: '20px, auto',
   },
   orderInfo: {
     display: 'flex',
@@ -124,13 +124,15 @@ const styles = {
   orderDetailLabel: {
     fontSize: '14px',
     color: '#333',
+    width: '30%'
   },
   orderDetailValue: {
-    textAlign: 'right',
+    textAlign: 'left',
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
-    marginLeft: '5rem',
+    width: '50%',
+    marginLeft: '1rem',
   },
   amount: {
     textAlign: 'right',
