@@ -17,8 +17,8 @@ const sendMail = async (from, to, subject, html) => {
             port: process.env.NEXT_PUBLIC_MAIL_PORT,
             secure: true, // true for 465, false for other ports
             auth: {
-                user: process.env.NEXT_PUBLIC_MAIL_USERNAME,
-                pass: process.env.NEXT_PUBLIC_MAIL_PASSWORD
+                user: process.env.NEXT_MAIL_USERNAME,
+                pass: process.env.NEXT_MAIL_PASSWORD
             },
             tls: {
                 // This prevents "Hostname/IP does not match certificate's altnames" error
