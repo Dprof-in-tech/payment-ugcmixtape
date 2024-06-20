@@ -36,17 +36,16 @@ const EmailTemplate = ({
           />
         </Section>
         <Section style={styles.orderInfo}>
-          <Text style={styles.orderLabel}>ORDER</Text>
-          <Text style={styles.orderID}>{orderID}</Text>
+          <OrderId label="ORDER ID:" value={orderID} />
         </Section>
         <Text style={styles.heading}>Thank you, {customerName}</Text>
         <Text style={styles.subHeading}>Your order is on its way</Text>
         
-        <OrderDetail label="Order Date" value={orderDate} />
-        <OrderDetail label="Customer Email" value={customerEmail} />
-        <OrderDetail label="Narrative Name" value={narrative} />
-        <OrderDetail label="Product Name" value={description} />
-        <OrderDetail label="Amount" value={`$${price}`} isAmount />
+        <OrderDetail label="ORDER DATE:" value={orderDate} />
+        <OrderDetail label="CUSTOMER EMAIL:" value={customerEmail} />
+        <OrderDetail label="NARRATIVE NAME:" value={narrative} />
+        <OrderDetail label="PRODUCT NAME:" value={description} />
+        <OrderDetail label="PRODUCT PRICE:" value={`$${price}`} isAmount />
       </Container>
     </Body>
   </Html>
@@ -58,6 +57,13 @@ const OrderDetail = ({ label, value, isAmount = false }) => (
     <Column style={styles.orderDetailColumn}><Text style={isAmount ? styles.amount : styles.orderDetailValue}>{value}</Text></Column>
   </Row>
 );
+
+const OrderId = ({ label, value}) => (
+    <Row style={styles.orderId}>
+      <Column style={styles.orderIdColumn}><Text style={styles.orderIdLabel}>{label}</Text></Column>
+      <Column style={styles.orderIdColumn}><Text style={styles.orderIdValue}>{value}</Text></Column>
+    </Row>
+  );
 
 const styles = {
   body: {
@@ -71,7 +77,7 @@ const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
     width: '100%',
-    maxWidth: '600px',
+    maxWidth: '700px',
     backgroundColor: '#ffffff',
     padding: '20px',
     borderRadius: '8px',
@@ -79,25 +85,32 @@ const styles = {
   },
   logo: {
     textAlign: 'center',
-    marginBottom: '20px',
+    marginBottom: '10px',
+    position: 'relative',
+    marginTop: '6rem',
+    left: '25%'
   },
-  orderInfo: {
+  orderId: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottom: '1px solid #e0e0e0',
-    paddingBottom: '10px',
-    marginBottom: '20px',
+    padding: '10px 0',
   },
-  orderLabel: {
+  orderIdColumn: {
+    flex: 1,
+  },
+  orderIdLabel: {
+    fontSize: '18px',
+    color: '#333',
+    width: '14rem',
+    fontWeight: 'Bold'
+  },
+  orderIdValue: {
+    textAlign: 'left',
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
-    width: '100px'
-  },
-  orderID: {
-    fontSize: '14px',
-    color: '#666',
+    marginLeft: '2rem',
     width: '200px'
   },
   heading: {
@@ -105,13 +118,13 @@ const styles = {
     color: '#333',
     marginBottom: '5px',
     fontWeight: 'bold',
-    fontSize: '18px',
+    fontSize: '2.5rem',
   },
   subHeading: {
     textAlign: 'center',
     color: '#666',
     marginBottom: '20px',
-    fontSize: '14px',
+    fontSize: '18px',
   },
   orderDetails: {
     display: 'flex',
@@ -126,7 +139,7 @@ const styles = {
   orderDetailLabel: {
     fontSize: '14px',
     color: '#333',
-    width: '8rem'
+    width: '14rem'
   },
   orderDetailValue: {
     textAlign: 'left',
