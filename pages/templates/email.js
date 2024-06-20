@@ -93,13 +93,11 @@ const styles = {
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
-    border: '1px solid black',
     width: '100px'
   },
   orderID: {
     fontSize: '14px',
     color: '#666',
-    border: '1px solid black',
     width: '200px'
   },
   heading: {
@@ -128,7 +126,6 @@ const styles = {
   orderDetailLabel: {
     fontSize: '14px',
     color: '#333',
-    border: '1px solid black',
     width: '200px'
   },
   orderDetailValue: {
@@ -137,7 +134,6 @@ const styles = {
     color: '#333',
     fontSize: '14px',
     marginLeft: '2rem',
-    border: '1px solid black',
     width: '200px'
   },
   amount: {
@@ -146,7 +142,6 @@ const styles = {
     color: '#333',
     fontSize: '16px',
     marginLeft: '2rem',
-    border: '1px solid black',
     width: '200px'
   },
 };
