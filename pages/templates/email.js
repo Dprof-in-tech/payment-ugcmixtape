@@ -124,20 +124,26 @@ const styles = {
   orderDetailLabel: {
     fontSize: '14px',
     color: '#333',
+    border: '1px solid black',
+    width: '200px'
   },
   orderDetailValue: {
-    textAlign: 'right',
+    textAlign: 'left',
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
     marginLeft: '2rem',
+    border: '1px solid black',
+    width: '200px'
   },
   amount: {
-    textAlign: 'right',
+    textAlign: 'left',
     fontWeight: 'bold',
     color: '#333',
     fontSize: '16px',
     marginLeft: '2rem',
+    border: '1px solid black',
+    width: '200px'
   },
 };
 
