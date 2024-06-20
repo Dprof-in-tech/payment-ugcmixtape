@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-email/button": "0.0.15",
+    "@react-email/components": "^0.0.19",
+    "@react-email/html": "0.0.8",
     "@stripe/react-stripe-js": "^2.3.0",
     "@stripe/stripe-js": "^2.1.0",
     "dotenv": "^16.4.5",
@@ -17,6 +20,7 @@
     "nodemailer": "^6.9.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-email": "2.1.4",
     "stripe": "^8.202.0",
     "winston": "^3.13.0"
   },

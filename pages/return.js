@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import emailTemplate from '../templates/email';
+import emailTemplate from './templates/email';
 import Image from 'next/image';
 
 export default function Return() {
