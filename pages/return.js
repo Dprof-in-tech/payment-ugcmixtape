@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { render } from '@react-email/render';
 import EmailTemplate from './templates/email';
 import Image from 'next/image';
 
@@ -9,10 +10,7 @@ export default function Return() {
   const router = useRouter();
 
   useEffect(() => {
-    const { session_id } = router.query;
-    const {p} = router.query;
-    const {d} = router.query;
-    const {cn} = router.query;
+    const { session_id, p, d, cn } = router.query;
 
     if (session_id) {
       fetch(`/api/checkout_sessions?session_id=${session_id}`, {
@@ -31,7 +29,17 @@ export default function Return() {
             const to = data.customer_email;
             const subject = 'Payment Successful';
             const client = cn;
-            const html = EmailTemplate(client, id, time, product, p, data.customer_email, data.price );
+            const html = render(
+              <EmailTemplate 
+                customerName={client} 
+                orderID={id} 
+                orderDate={time.toDateString()} 
+                narrative={product} 
+                description={p} 
+                customerEmail={data.customer_email} 
+                price={data.price} 
+              />
+            );
 
             fetch('/api/sendEmail', {
               method: 'POST',
@@ -53,7 +61,7 @@ export default function Return() {
   }, [router.query]);
 
   if (status === 'open') {
-    return router.push('/');
+    router.push('/');
   }
 
   if (status === 'complete') {
@@ -63,18 +71,19 @@ export default function Return() {
         <Image src='/success.svg' alt='success' width={300} height={300} style={{marginTop: '3rem'}} />
         <h1 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '0.5rem'}}>Payment Successful</h1>
         <p style={{fontSize: '1.2rem', marginTop: '0', maxWidth: '100%', textAlign: 'center'}}>
-          Your payment was successful and a reciept has been sent to {customerEmail}.
+          Your payment was successful and a receipt has been sent to {customerEmail}.
           Your order is on its way...
         </p>
         <a href='https://www.ugcmixtape.com/login'>
-        <button style={{padding: '1.2rem', borderRadius: '4px', color: 'white', backgroundColor: '#000000', border: 'none', fontSize: '1.2rem'}}>
-          Back to Login
-        </button>
+          <button style={{padding: '1.2rem', borderRadius: '4px', color: 'white', backgroundColor: '#000000', border: 'none', fontSize: '1.2rem'}}>
+            Back to Login
+          </button>
         </a>
       </section>
     );
   }
 
+  // Uncomment the following section if you want to handle the failed payment case
   // else if (status !== 'complete'){
   //   return (
   //     <section id="success" style={{width: '300px'}}>
@@ -86,13 +95,12 @@ export default function Return() {
   //         please try again...
   //       </p>
   //       <a href='https://www.ugcmixtape.com/login'>
-  //       <button style={{padding: '1.2rem', borderRadius: '4px', color: 'white', backgroundColor: '#000000', border: 'none', fontSize: '1.2rem'}}>
-  //         Back to Login
-  //       </button>
+  //         <button style={{padding: '1.2rem', borderRadius: '4px', color: 'white', backgroundColor: '#000000', border: 'none', fontSize: '1.2rem'}}>
+  //           Back to Login
+  //         </button>
   //       </a>
   //     </section>
   //   );
-
   // }
 
   return null;
