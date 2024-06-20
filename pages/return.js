@@ -115,7 +115,7 @@ const styles = {
     minWidth: '320px',
     maxWidth: '475px',
     height: '60vh',
-    margin: '0 auto',
+    margin: '4rem auto',
     padding: '0',
     boxSizing: 'border-box',
     textAlign: 'center',
