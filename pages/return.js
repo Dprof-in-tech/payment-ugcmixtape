@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import emailTemplate from './templates/email';
+import EmailTemplate from './templates/email';
 import Image from 'next/image';
 
 export default function Return() {
@@ -31,7 +31,7 @@ export default function Return() {
             const to = data.customer_email;
             const subject = 'Payment Successful';
             const client = cn;
-            const html = emailTemplate(client, id, time, product, p, data.customer_email, data.price );
+            const html = EmailTemplate(client, id, time, product, p, data.customer_email, data.price );
 
             fetch('/api/sendEmail', {
               method: 'POST',
