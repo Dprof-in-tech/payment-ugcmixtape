@@ -73,13 +73,13 @@ const styles = {
     width: '100%',
     maxWidth: '600px',
     backgroundColor: '#ffffff',
-    padding: '1rem',
+    padding: '20px',
     borderRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
   },
   logo: {
     textAlign: 'center',
-    margin: '20px, auto',
+    marginBottom: '20px',
   },
   orderInfo: {
     display: 'flex',
@@ -117,7 +117,6 @@ const styles = {
     alignItems: 'center',
     borderBottom: '1px solid #e0e0e0',
     padding: '10px 0',
-    width: '100%',
   },
   orderDetailColumn: {
     flex: 1,
@@ -125,30 +124,19 @@ const styles = {
   orderDetailLabel: {
     fontSize: '14px',
     color: '#333',
-    width: '50%'
   },
   orderDetailValue: {
-    textAlign: 'left',
+    textAlign: 'right',
     fontWeight: 'bold',
     color: '#333',
     fontSize: '14px',
-    width: '50%',
-    marginLeft: '1rem',
-  },
-  orderDetailisAmount: {
-    textAlign: 'left',
-    fontWeight: 'bold',
-    color: '#333',
-    fontSize: '14px',
-    width: '50%',
-    marginLeft: '1rem',
+    marginLeft: '2rem',
   },
   amount: {
     textAlign: 'right',
     fontWeight: 'bold',
     color: '#333',
     fontSize: '16px',
-    width: '50%',
   },
 };
 
