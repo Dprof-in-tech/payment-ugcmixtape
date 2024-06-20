@@ -24,7 +24,6 @@ export default function Return() {
           setCustomerEmail(data.customer_email);
 
           if (data.status === 'complete') {
-            console.log(data);
             const time = new Date(data.time);
             const id = d.slice(23, 28);
             const product = d.slice(0, 21);
@@ -43,7 +42,7 @@ export default function Return() {
             })
               .then((response) => response.json())
               .then((result) => {
-                console.log(result);
+                //console.log(result);
               })
               .catch((error) => {
                 console.error('Error sending email:', error);
