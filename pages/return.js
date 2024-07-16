@@ -26,7 +26,7 @@ export default function Return() {
             const product = d.slice(0, 21);
             const from = 'payments@ugcmixtape.com';
             const to = data.customer_email;
-            const subject = 'Payment Successful';
+            const subject = 'MIXTAPE PAYMENT SUCCESSFUL';
             const client = cn;
             const html = render(
               <EmailTemplate 
