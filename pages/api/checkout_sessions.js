@@ -12,8 +12,6 @@ export default async function handler(req, res) {
           ui_mode: 'embedded',
           customer_email: email, // Use the email parameter from the request
           submit_type: 'pay',
-          customer: client,
-          description: id,
           line_items: [
             {
               price_data: {
