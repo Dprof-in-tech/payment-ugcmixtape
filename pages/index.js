@@ -18,7 +18,7 @@ export default function App() {
     const client = urlParams.get('cn') || '';
     let amount = parseFloat(urlParams.get('p')) || 0;
 
-    if (couponCode === 'SOSHE2024') {
+    if (couponCode === 'SOSHE2024' && amount != 29) {
       amount -= Math.ceil(amount * 0.3324);
     }
 
