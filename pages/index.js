@@ -18,8 +18,9 @@ export default function App() {
     const client = urlParams.get('cn') || '';
     let amount = parseFloat(urlParams.get('p')) || 0;
 
-    if (amount == 29){
+    if (amount === 29){
       setShowCheckout(true)
+      return;
     }
 
     if (couponCode === 'SOSHE2024' && amount != 29) {
