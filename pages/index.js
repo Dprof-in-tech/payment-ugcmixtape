@@ -82,7 +82,7 @@ export default function App() {
   <p className='text-sm text-gray-700'>
     If you do not have a coupon code, just click on the <span className='font-semibold text-blue-600'>Pay</span> button.
   </p>
-  <p className='mt-3 text-sm text-red-600 font-medium'>
+  <p className='mt-3 mb-3 text-sm text-red-600 font-medium'>
     Please note: No coupons are available for Mixtape Watermark removal. Kindly proceed by clicking <span className='font-semibold text-blue-600'>Pay</span> to complete your purchase.
   </p>
 </div>
