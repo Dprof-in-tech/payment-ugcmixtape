@@ -137,10 +137,10 @@ export default function App() {
                   Optional
                 </p>
               </label>
-            <button type="submit" className='text-white mt-4 px-6 py-3  w-[120px] bg-custom-gradient border border-gray-300 focus:border-gray-400 hover:border-gray-600 rounded-md'>Pay</button>
+            <button type="submit" className='text-white mt-4 px-6 py-3  w-full bg-custom-gradient border border-gray-300 focus:border-gray-400 hover:border-gray-600 rounded-3xl'>Pay</button>
           </form>
 
-          <div className='mt-4 w-[75%]'>
+          <div className='mt-4 ml-8 w-[75%]'>
             <p>
               Please if you do not have a coupon code, just click on the pay button
             </p>
