@@ -80,8 +80,11 @@ export default function App() {
           </form>
           <div className='mt-4 ml-8 w-[75%]'>
             <p>
-              Please if you do not have a coupon code, just click on the pay button
+              Please if you do not have a coupon code, just click on the pay button.
             </p>
+             <p>
+  							Please note: No coupons are available for Mixtape Watermark removal. Kindly proceed by clicking Pay to complete your purchase.
+             </p>
           </div>
         </div>
         </div>
