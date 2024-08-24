@@ -78,7 +78,7 @@ export default function App() {
               </label>
             <button type="submit" className='text-white mt-4 px-6 py-3  w-full bg-custom-gradient border border-gray-300 focus:border-gray-400 hover:border-gray-600 rounded-3xl'>Pay</button>
           </form>
-          <div className=' w-[85%] md:w-[75%] h-[fit-content] px-4'>
+          <div className=' w-full md:w-[75%] h-[fit-content] py-2 px-4'>
   <p className='text-sm text-gray-700'>
     If you do not have a coupon code, just click on the <span className='font-semibold text-blue-600'>Pay</span> button.
   </p>
