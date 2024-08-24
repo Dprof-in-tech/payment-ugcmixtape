@@ -1,11 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
 
 module.exports = {
   content: [
@@ -13,7 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(135deg, #e83b95 0%, #6250fe 33%, #00aeef 66%, #1fba9c 100%)',
+      },
+    },
   },
   plugins: [],
 };

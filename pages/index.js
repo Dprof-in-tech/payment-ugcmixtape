@@ -74,7 +74,7 @@ export default function App() {
     let amount = parseFloat(urlParams.get('p')) || 0;
 
     if (couponCode === 'SOSHE2024') {
-      amount -= amount * 0.375
+      amount -= Math.ceil(amount * 0.375);
     }
 
     try {
@@ -111,11 +111,12 @@ export default function App() {
   const options = { fetchClientSecret };
 
   return (
-    <div id="checkout" className='flex flex-col items-center justify-center h-full w-full'>
+    <div id="checkout">
       {!showCheckout ? (
+        <div className='flex flex-col items-center justify-center mt-20 w-full h-full'>
         <div className='flex flex-col w-[85%] md:w-[30%] h-[65vh] items-center justify-center border border-gray-200 rounded-md'>
-          <div>
-
+          <div className='w-[100px] h-[100px]'>
+            <img src='/ugcmixtape.svg' alt='logo' className='w-full h-full' />
           </div>
           <form onSubmit={handleSubmit} className=''>
               <label
@@ -136,7 +137,7 @@ export default function App() {
                   Optional
                 </p>
               </label>
-            <button type="submit" className='text-black mt-4 px-6 py-2  w-[120px] h-[45px] border border-gray-300 focus:border-gray-400 hover:border-gray-600 rounded-md'>Pay</button>
+            <button type="submit" className='text-white mt-4 px-6 py-3  w-[120px] bg-custom-gradient border border-gray-300 focus:border-gray-400 hover:border-gray-600 rounded-md'>Pay</button>
           </form>
 
           <div className='mt-4 w-[75%]'>
@@ -144,6 +145,7 @@ export default function App() {
               Please if you do not have a coupon code, just click on the pay button
             </p>
           </div>
+        </div>
         </div>
       ) : (
         <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
