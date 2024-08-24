@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
 
@@ -11,19 +11,18 @@ export default function App() {
   const fetchClientSecret = useCallback(async () => {
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Extract values from URL parameters (handle missing values gracefully)
     const name = urlParams.get('n') || '';
     const email = urlParams.get('e') || '';
     const id = urlParams.get('i') || '';
     const client = urlParams.get('cn') || '';
     let amount = parseFloat(urlParams.get('p')) || 0;
 
-    if (amount === 29){
-      setShowCheckout(true)
+    if (amount === 29) {
+      setShowCheckout(true);
       return;
     }
 
-    if (couponCode === 'SOSHE2024' && amount != 29) {
+    if (couponCode === 'SOSHE2024' && amount !== 29) {
       amount -= Math.ceil(amount * 0.3324);
     }
 
@@ -53,9 +52,24 @@ export default function App() {
     }
   }, [couponCode]);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let amount = parseFloat(urlParams.get('p')) || 0;
+
+    // Directly load the checkout if amount is 29
+    if (amount === 29) {
+      setShowCheckout(true);
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowCheckout(true);
+    try {
+      await fetchClientSecret();
+      setShowCheckout(true);
+    } catch (error) {
+      console.error("Error during checkout preparation:", error);
+    }
   };
 
   const options = { fetchClientSecret };
@@ -102,7 +116,6 @@ export default function App() {
           <EmbeddedCheckout />
         </EmbeddedCheckoutProvider>
       )}
-
     </div>
   );
 }
