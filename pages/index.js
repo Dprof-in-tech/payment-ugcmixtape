@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
@@ -14,10 +14,10 @@ export default function App() {
     const client = urlParams.get('cn') || '';
     let amount = parseFloat(urlParams.get('p')) || 0;
 
-    if (amount === 29){
-      setShowCheckout(true)
-      return;
-    }
+    //if (amount === 29){
+     // setShowCheckout(true)
+    //  return;
+    //}
 
     if (couponCode === 'SOSHE2024' && amount != 29) {
       amount -= Math.ceil(amount * 0.3324);
@@ -44,15 +44,6 @@ export default function App() {
     }
   }, [couponCode]);
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    let amount = parseFloat(urlParams.get('p')) || 0;
-
-    // Directly load the checkout if amount is 29
-    if (amount === 29) {
-      setShowCheckout(true);
-    }
-  }, []);
   
   const handleSubmit = (e) => {
     e.preventDefault();
