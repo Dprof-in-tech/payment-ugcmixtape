@@ -19,7 +19,7 @@ export default function App() {
       return;
     }
   
-    if (name === 'Mixtape-Watermark-Removal') {
+    if (name != 'Mixtape Post Production') {
       setErrorMessage('No coupons are available for Mixtape Watermark removal');
       throw new Error('No coupons are available for Mixtape Watermark removal');
     }
@@ -51,6 +51,7 @@ export default function App() {
 
   const fetchClientSecret = useCallback(async () => {
     const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('n') || '';
     const email = urlParams.get('e') || '';
     const id = urlParams.get('i') || '';
     const client = urlParams.get('cn') || '';
