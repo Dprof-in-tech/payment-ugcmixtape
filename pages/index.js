@@ -10,14 +10,14 @@ export default function App() {
   const [amount, setAmount] = useState(0); // Store the updated amount after coupon validation
 
   const validateCoupon = useCallback(async () => {
+    const name = urlParams.get('n') || '';
     if (couponCode.trim()) {
       const urlParams = new URLSearchParams(window.location.search);
       let amount = parseFloat(urlParams.get('p')) || 0;
-      const name = urlParams.get('n') || '';
 
       if (name === 'Mixtape-Watermark-Removal') {
         setErrorMessage('No coupons are available for Mixtape Watermark removal');
-        return;
+        throw new Error('No coupons are available for Mixtape Watermark removal');
       } else if (name != 'Mixtape-Watermark-Removal') {
         try {
           const couponValidationResponse = await fetch("/api/validate-coupon", {
