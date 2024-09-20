@@ -58,6 +58,7 @@ const addCouponToSheet = async (couponData) => {
 export default async function handler(req, res) {
   // Set CORS headers to allow the frontend domain to access the API
   res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', 'https://mixtape-coupon.vercel.app');
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Update with your frontend URL
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Authorization, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
