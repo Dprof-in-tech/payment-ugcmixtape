@@ -13,29 +13,35 @@ export default function App() {
     if (couponCode.trim()) {
       const urlParams = new URLSearchParams(window.location.search);
       let amount = parseFloat(urlParams.get('p')) || 0;
+      const name = urlParams.get('n') || '';
 
-      try {
-        const couponValidationResponse = await fetch("/api/validate-coupon", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ couponCode, amount }),
-        });
+      if (name === 'Mixtape-Watermark-Removal') {
+        setErrorMessage('No coupons are available for Mixtape Watermark removal');
+        return;
+      } else if (name != 'Mixtape-Watermark-Removal') {
+        try {
+          const couponValidationResponse = await fetch("/api/validate-coupon", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ couponCode, amount }),
+          });
 
-        if (!couponValidationResponse.ok) {
-          const { message } = await couponValidationResponse.json();
-          throw new Error(message);
+          if (!couponValidationResponse.ok) {
+            const { message } = await couponValidationResponse.json();
+            throw new Error(message);
+          }
+
+          const couponValidationData = await couponValidationResponse.json();
+          if (couponValidationData.valid) {
+            setAmount(couponValidationData.newAmount); // Set the new amount after applying the coupon
+          } else {
+            throw new Error(couponValidationData.message);
+          }
+        } catch (error) {
+          console.error("Coupon validation error:", error);
+          setErrorMessage(error.message || 'Invalid coupon');
+          throw error;
         }
-
-        const couponValidationData = await couponValidationResponse.json();
-        if (couponValidationData.valid) {
-          setAmount(couponValidationData.newAmount); // Set the new amount after applying the coupon
-        } else {
-          throw new Error(couponValidationData.message);
-        }
-      } catch (error) {
-        console.error("Coupon validation error:", error);
-        setErrorMessage(error.message || 'Invalid coupon');
-        throw error;
       }
     } else {
       // No coupon provided, just use the original amount from the URL
@@ -46,7 +52,6 @@ export default function App() {
 
   const fetchClientSecret = useCallback(async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('n') || '';
     const email = urlParams.get('e') || '';
     const id = urlParams.get('i') || '';
     const client = urlParams.get('cn') || '';
@@ -137,4 +142,4 @@ export default function App() {
       )}
     </div>
   );
-        }
+}
