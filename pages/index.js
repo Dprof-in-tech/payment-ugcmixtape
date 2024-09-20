@@ -10,45 +10,44 @@ export default function App() {
   const [amount, setAmount] = useState(0); // Store the updated amount after coupon validation
 
   const validateCoupon = useCallback(async () => {
+    const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('n') || '';
-    if (couponCode.trim()) {
-      const urlParams = new URLSearchParams(window.location.search);
-      let amount = parseFloat(urlParams.get('p')) || 0;
-
-      if (name === 'Mixtape-Watermark-Removal') {
-        setErrorMessage('No coupons are available for Mixtape Watermark removal');
-        throw new Error('No coupons are available for Mixtape Watermark removal');
-      } else if (name != 'Mixtape-Watermark-Removal') {
-        try {
-          const couponValidationResponse = await fetch("/api/validate-coupon", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ couponCode, amount }),
-          });
-
-          if (!couponValidationResponse.ok) {
-            const { message } = await couponValidationResponse.json();
-            throw new Error(message);
-          }
-
-          const couponValidationData = await couponValidationResponse.json();
-          if (couponValidationData.valid) {
-            setAmount(couponValidationData.newAmount); // Set the new amount after applying the coupon
-          } else {
-            throw new Error(couponValidationData.message);
-          }
-        } catch (error) {
-          console.error("Coupon validation error:", error);
-          setErrorMessage(error.message || 'Invalid coupon');
-          throw error;
-        }
-      }
-    } else {
-      // No coupon provided, just use the original amount from the URL
-      const urlParams = new URLSearchParams(window.location.search);
-      setAmount(parseFloat(urlParams.get('p')) || 0); // Set amount from URL if no coupon is entered
+    let amount = parseFloat(urlParams.get('p')) || 0;
+  
+    if (!couponCode.trim()) {
+      setAmount(amount); // No coupon provided
+      return;
     }
-  }, [couponCode]);
+  
+    if (name === 'Mixtape-Watermark-Removal') {
+      setErrorMessage('No coupons are available for Mixtape Watermark removal');
+      throw new Error('No coupons are available for Mixtape Watermark removal');
+    }
+  
+    try {
+      const couponValidationResponse = await fetch("/api/validate-coupon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ couponCode, amount }),
+      });
+  
+      if (!couponValidationResponse.ok) {
+        const { message } = await couponValidationResponse.json();
+        throw new Error(message);
+      }
+  
+      const couponValidationData = await couponValidationResponse.json();
+      if (couponValidationData.valid) {
+        setAmount(couponValidationData.newAmount); // Update amount
+      } else {
+        throw new Error(couponValidationData.message);
+      }
+    } catch (error) {
+      console.error("Coupon validation error:", error);
+      setErrorMessage(error.message || 'Invalid coupon');
+      throw error;
+    }
+  }, [couponCode]);  
 
   const fetchClientSecret = useCallback(async () => {
     const urlParams = new URLSearchParams(window.location.search);
