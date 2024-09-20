@@ -1,9 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
-
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
 export default function App() {
   const [couponCode, setCouponCode] = useState('');
   const [showCheckout, setShowCheckout] = useState(false);
@@ -59,16 +57,13 @@ export default function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, amount, id, client, couponCode }),
       });
-
       if (!response.ok) {
         throw new Error(`HTTP error ${response.status}`);
       }
-
       const data = await response.json();
       if (!data.clientSecret) {
         throw new Error("No client secret found in the response");
       }
-
       return data.clientSecret;
     } catch (error) {
       console.error("Error fetching client secret:", error);
@@ -93,9 +88,7 @@ export default function App() {
       setIsSubmitting(false);
     }
   };
-
   const options = { fetchClientSecret };
-
   return (
     <div id="checkout">
       {!showCheckout ? (
@@ -144,4 +137,4 @@ export default function App() {
       )}
     </div>
   );
-}
+        }
