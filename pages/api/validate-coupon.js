@@ -52,6 +52,9 @@ const validateCouponCode = async (couponCode, amount) => {
           newAmount -= parseFloat(discountAmount);
         }
 
+        // Round up to the nearest greater whole number
+        newAmount = Math.ceil(newAmount);
+
         const newUsageCount = parseInt(usageCount, 10) + 1;
 
         await sheets.spreadsheets.values.update({
