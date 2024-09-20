@@ -93,7 +93,7 @@ export default function App() {
     <div id="checkout">
       {!showCheckout ? (
         <div className='flex flex-col items-center justify-center mt-20 w-full h-full'>
-          <div className='flex flex-col w-[85%] md:w-[30%] h-[65vh] items-center justify-center border border-gray-200 rounded-md'>
+          <div className='flex flex-col w-[87%] md:w-[30%] h-[85vh] items-center justify-center border border-gray-200 rounded-md'>
             <div className='w-[100px] h-[100px]'>
               <img src='/ugcmixtape.svg' alt='logo' className='w-full h-full' />
             </div>
@@ -122,9 +122,9 @@ export default function App() {
                 {isSubmitting ? 'Processing...' : 'Pay'}
               </button>
             </form>
-            <div className='mt-2 ml-8 w-[75%]'>
-              <p>Please if you do not have a coupon code, just click on the pay button</p>
-              <p className='mt-1 mb-1 text-sm text-red-600 font-medium'>
+            <div className='mt-2 ml-8 w-[95%] sm:w-[75%]'>
+              <p className='h-auto mb-2 text-[0.8rem]'>Please if you do not have a coupon code, just click on the pay button</p>
+              <p className='text-[0.8rem] mt-2 text-red-600 font-medium h-auto'>
                 Please note: No coupons are available for Mixtape Watermark removal. Kindly proceed by clicking <span className='font-semibold text-blue-600'>Pay</span> to complete your purchase.
               </p>
             </div>
