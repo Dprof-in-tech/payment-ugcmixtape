@@ -1,6 +1,5 @@
 import { google } from 'googleapis';
 
-
 const SHEET_NAME = 'Sheet1';
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
 
@@ -54,17 +53,6 @@ const validateCouponCode = async (couponCode, amount) => {
 
         // Round up to the nearest greater whole number
         newAmount = Math.ceil(newAmount);
-
-        const newUsageCount = parseInt(usageCount, 10) + 1;
-
-        await sheets.spreadsheets.values.update({
-          spreadsheetId: SPREADSHEET_ID,
-          range: `${SHEET_NAME}!F${couponRowIndex + 1}`,
-          valueInputOption: 'RAW',
-          resource: {
-            values: [[newUsageCount]],
-          },
-        });
 
         return { valid: true, newAmount: Math.max(newAmount, 0) };
       }
