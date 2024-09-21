@@ -116,69 +116,6 @@
 //   return null;
 // }
 
-// const styles = {
-//   container: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     minWidth: '320px',
-//     maxWidth: '475px',
-//     height: '60vh',
-//     margin: '6rem auto',
-//     padding: '0',
-//     boxSizing: 'border-box',
-//     textAlign: 'center',
-//   },
-//   heading: {
-//     fontSize: '1.6rem',
-//     fontWeight: '700',
-//     marginBottom: '0.5rem',
-//   },
-//   paragraph: {
-//     fontSize: '1rem',
-//     marginTop: '0',
-//     maxWidth: '95%',
-//     textAlign: 'center',
-//     height: 'fit-content'
-//   },
-//   button: {
-//     padding: '1.2rem',
-//     borderRadius: '12px',
-//     color: 'white',
-//     backgroundColor: '#000000',
-//     border: 'none',
-//     fontSize: '1.2rem',
-//     marginTop: '1rem',
-//     marginBottom: "1rem",
-//     cursor: 'pointer',
-//     backgroundImage: 'linear-gradient(135deg, #e83b95 0%, #6250fe 33%, #00aeef 66%, #1fba9c 100%)',
-//   }
-//   ,
-
-//   loadingContainer: {
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     height: '100vh',
-//   },
-//   spinner: {
-//     width: '40px',
-//     height: '40px',
-//     border: '4px solid rgba(0, 0, 0, 0.1)',
-//     borderTop: '4px solid #000000',
-//     borderRadius: '50%',
-//     animation: 'spin 3s linear infinite',
-//   },
-//   '@keyframes spin': {
-//     from: {
-//       transform: 'rotate(0deg)',
-//     },
-//     to: {
-//       transform: 'rotate(360deg)',
-//     },
-//   },
-// };
 
 
 import React, { useEffect, useState } from 'react';
@@ -303,3 +240,67 @@ export default function Return() {
 
   return null;
 }
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: '320px',
+    maxWidth: '475px',
+    height: '60vh',
+    margin: '6rem auto',
+    padding: '0',
+    boxSizing: 'border-box',
+    textAlign: 'center',
+  },
+  heading: {
+    fontSize: '1.6rem',
+    fontWeight: '700',
+    marginBottom: '0.5rem',
+  },
+  paragraph: {
+    fontSize: '1rem',
+    marginTop: '0',
+    maxWidth: '95%',
+    textAlign: 'center',
+    height: 'fit-content'
+  },
+  button: {
+    padding: '1.2rem',
+    borderRadius: '12px',
+    color: 'white',
+    backgroundColor: '#000000',
+    border: 'none',
+    fontSize: '1.2rem',
+    marginTop: '1rem',
+    marginBottom: "1rem",
+    cursor: 'pointer',
+    backgroundImage: 'linear-gradient(135deg, #e83b95 0%, #6250fe 33%, #00aeef 66%, #1fba9c 100%)',
+  }
+  ,
+
+  loadingContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  },
+  spinner: {
+    width: '40px',
+    height: '40px',
+    border: '4px solid rgba(0, 0, 0, 0.1)',
+    borderTop: '4px solid #000000',
+    borderRadius: '50%',
+    animation: 'spin 3s linear infinite',
+  },
+  '@keyframes spin': {
+    from: {
+      transform: 'rotate(0deg)',
+    },
+    to: {
+      transform: 'rotate(360deg)',
+    },
+  },
+};
